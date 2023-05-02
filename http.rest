@@ -1,0 +1,15 @@
+POST http://localhost:3000/api/v1/insert HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "This is a title by VS Code",
+    "body": "This is body from rest client",
+    "author": "Ritwik Das",
+    "category": "General",
+    "shared": false
+}
+
+###
+
+GET http://localhost:3000/api/v1/getNotes/12345 HTTP/1.1
+
