@@ -12,7 +12,7 @@ router.get('/getNotes/:userID', (req, res)=>{
     noteHandler.getNotes(req, res);
 });
 
-router.delete('/delete/:userID/:noteID', (req, res)=>{
+router.delete('/delete/:noteID', (req, res)=>{
     noteHandler.deleteNote(req, res);
 })
 

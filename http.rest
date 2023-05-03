@@ -2,7 +2,7 @@ POST http://localhost:3000/api/v1/insert HTTP/1.1
 Content-Type: application/json
 
 {
-    "title": "This is a title by VS Code",
+    "title": "This is a note 1",
     "body": "This is body from rest client",
     "author": "Ritwik Das",
     "category": "General",
@@ -13,3 +13,18 @@ Content-Type: application/json
 
 GET http://localhost:3000/api/v1/getNotes/12345 HTTP/1.1
 
+###
+PUT http://localhost:3000/api/v1/updateNote/644bff2c341bad8c1e53996d HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Updated - This is a title by VS Code",
+    "body": "Updated - This is body from rest client",
+    "category": "General",
+    "shared": true
+}
+
+###
+
+DELETE http://localhost:3000/api/v1/delete/1ee1c08a76a985a4679ac6d809e28137 HTTP/1.1
+Content-Type: application/json
