@@ -1,5 +1,3 @@
-const { ObjectId } = require('mongodb');
-const { connect } = require('../routers/routes.js');
 const uuid = require('crypto');
 const client = require('./dbconfig.js');
 
@@ -17,8 +15,7 @@ async function insertNote(req, res){
   note.body = req.body.body;
   note.author = req.body.author;
   note.date = new Date();
-  note.shared = false;
-  note.category = req.body.category;
+  note.colour = req.body.colour;
 
   try{
     await client.connect();
@@ -48,8 +45,9 @@ async function getNotes(req, res){
       .find();
 
       let data = await dataItr.toArray()
+
       res.json(data);
-      console.log("Note Fetched Successfully");
+      //console.log("Note Fetched Successfully");
       await dataItr.close();
     }catch(err){
       console.log(err.body);
@@ -100,7 +98,7 @@ async function deleteNote(req, res){
       .deleteOne(
         { id: id}
       )
-      console.log("Note Deleted Successfully");
+      //console.log("Note Deleted Successfully");
       res.json("Note Deleted Successfully");
     }catch(err){
       console.log(err.body);
@@ -109,9 +107,9 @@ async function deleteNote(req, res){
       await client.close();
     }
 
-    res.send("Success")
-
 }
+
+
 
 module.exports.insertNote = insertNote;
 module.exports.getNotes = getNotes;

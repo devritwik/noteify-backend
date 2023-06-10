@@ -1,8 +1,21 @@
 const express = require('express')
-const app = express()
+require('dotenv').config
 const router = require('./routers/routes');
 const bodyParser = require('body-parser');
+const cors = require("cors");
 
+
+const app = express()
+
+const corsOptions ={
+   origin:'*', 
+   credentials:true, 
+   optionSuccessStatus:200,
+}
+
+
+//For cors
+app.use(cors(corsOptions))
 
 //Middleware Use
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -16,4 +29,5 @@ app.use('/api/v1', router);
 //Delete Note
 //Share Note
 //app.use('api', router);
-app.listen(3000)
+const PORT = process.env.PORT 
+app.listen(PORT);
